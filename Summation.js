@@ -15,6 +15,6 @@ var summation = function (num) {
   return sum
 }
 
-/* Clever
+/* Clever Answer
 const summation = num => num * (num + 1) / 2;
 */
