@@ -15,11 +15,8 @@ function getCount(str) {
         }
     }
     // enter your majic here
-    
     return vowelsCount;
 }
-
-Test.assertEquals(getCount("abracadabra"), 5)
 
 /* Clever Answer
 function getCount(str) {
