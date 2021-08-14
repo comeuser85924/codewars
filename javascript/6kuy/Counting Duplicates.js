@@ -12,25 +12,36 @@
         "ABBA" -> 2 # 'A' and 'B' each occur twice
 */
 function duplicateCount(txt){
-    if(txt == "") return 0
-    var reg ,array=[];
-    for(var i in txt){
-        reg = new RegExp(txt[i],"gi")
-        if(txt.match(reg).length>1){
-            array.push(txt.match(reg).join())
-        }
-    }
-    var result = new Set();
-    var repeat = new Set();
-    array.forEach(item => {
-        result.has(item) ? repeat.add(item) : result.add(item);
-    })
-    return repeat.size
+    // case 1
+    // if(txt == "") return 0
+    // var reg ,array=[];
+    // for(var i in txt){
+    //     reg = new RegExp(txt[i],"gi")
+    //     if(txt.match(reg).length>1){
+    //         array.push(txt.match(reg).join())
+    //     }
+    // }
+    // var result = new Set();
+    // var repeat = new Set();
+    // array.forEach(item => {
+    //     result.has(item) ? repeat.add(item) : result.add(item);
+    // })
+    // return repeat.size
+    
+    // case 2
+    const counter ={}
+    txt.toLowerCase().split('').forEach(function(x) { 
+        counter[x] = (counter[x] || 0) + 1; 
+    });
+    return Object.values(counter).reduce((total, current) =>{
+        return (current > 1) ? total + 1 : total + 0
+    },0)
+
 }
-duplicateCount("abcde")
+// duplicateCount("abcde")
 // duplicateCount("aabbcde")
 // duplicateCount("aabBcde")
-// duplicateCount("Indivisibility")
+duplicateCount("Indivisibilities")
 
 /* Clever Answer
 function duplicateCount(text){
